@@ -59,6 +59,11 @@
         <div id="feedbackQuestion"></div>
         <button id="addQuestion">Добави</button>
         <button id="showQuestionsButton">Покажи всички въпроси</button>
+        
+        <!-- File upload section -->
+        <h3>Upload Questions File:</h3>
+        <input type="file" id="fileInput" accept=".xml">
+        <button id="uploadButton">Качи</button>
     </section>
 
     <section id="playSection" class="hidden">
@@ -75,12 +80,12 @@
 
     <div class="modal">
         <div class="modal-content">
-            <img src="" alt="Feedback Image" id="feedbackImage"> <!-- Add this line -->
+            <img src="" alt="Feedback Image" id="feedbackImage">
             <p id="feedbackMessage"></p>
         </div>
     </div>
     
     <script src="script.js"></script>
-    <script src="modal.js"></script> <!-- Add this line for the modal JavaScript -->
+    <script src="modal.js"></script>
 </body>
 </html>
