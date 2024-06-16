@@ -1,4 +1,3 @@
-// modal.js
 document.addEventListener("DOMContentLoaded", function() {
     const feedbackMessage = document.getElementById('feedbackMessage');
     const submitAnswerButton = document.getElementById('submitAnswer');
@@ -8,45 +7,45 @@ document.addEventListener("DOMContentLoaded", function() {
     const questions = JSON.parse(localStorage.getItem('questions')) || [];
     let currentQuestionIndex = 0;
 
-    submitAnswerButton.addEventListener('click', function() {
-        const currentQuestion = questions[currentQuestionIndex];
-        let isCorrect;
-        if (currentQuestion.type === 'free-text') {
-            isCorrect = (userAnswer.value.toLowerCase() === currentQuestion.answer.toLowerCase());
-        } else {
-            isCorrect = (userAnswer.value.toLowerCase() === currentQuestion.correctOption);
-        }
-        showFeedback(isCorrect);
-        userAnswer.value = '';
-    });
+    // submitAnswerButton.addEventListener('click', function() {
+    //     const currentQuestion = questions[currentQuestionIndex];
+    //     let isCorrect;
+    //     if (currentQuestion.type === 'free-text') {
+    //         isCorrect = (userAnswer.value.toLowerCase() === currentQuestion.answer.toLowerCase());
+    //     } else {
+    //         isCorrect = (userAnswer.value.toLowerCase() === currentQuestion.correctOption);
+    //     }
+    //     userAnswer.value = '';
+    // });
 
-    function showFeedback(isCorrect) {
-        const currentQuestion = questions[currentQuestionIndex];
-        const modal = document.querySelector('.modal');
-        const feedbackImage = document.getElementById('feedbackImage');
-        const feedbackMessage = document.getElementById('feedbackMessage');
+    // function showFeedback(isCorrect) {
+    //     alert(isCorrect);
+    //     const currentQuestion = questions[currentQuestionIndex];
+    //     const modal = document.querySelector('.modal');
+    //     const feedbackImage = document.getElementById('feedbackImage');
+    //     const feedbackMessage = document.getElementById('feedbackMessage');
 
-        if (isCorrect) {
-            feedbackImage.src = 'images/right.gif'; // Set the path to the correct image
-            feedbackMessage.textContent = "Правилно!";
-            modal.style.display = 'block'; // Display the modal
-        } else {
-            feedbackImage.src = 'images/wrong.gif'; // Set the path to the incorrect image
-            if(currentQuestion.type === 'free-text'){
-                feedbackMessage.textContent = 'Грешно! Правилният отговор е: ' + currentQuestion.answer;
-            }else{
-                feedbackMessage.textContent = 'Грешно! Правилният отговор е: ' + currentQuestion.correctOption.toUpperCase();
-            }
-            modal.style.display = 'block'; // Display the modal
-        }
-        //currentQuestionIndex++;
-        // Close the modal when the user clicks anywhere outside of it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-    }
+    //     if (isCorrect) {
+    //         feedbackImage.src = 'images/right.gif'; // Set the path to the correct image
+    //         feedbackMessage.textContent = "Правилно!";
+    //         modal.style.display = 'block'; // Display the modal
+    //     } else {
+    //         feedbackImage.src = 'images/wrong.gif'; // Set the path to the incorrect image
+    //         if(currentQuestion.type === 'free-text'){
+    //             feedbackMessage.textContent = 'Грешно! Правилният отговор е: ' + currentQuestion.answer;
+    //         }else{
+    //             feedbackMessage.textContent = 'Грешно! Правилният отговор е: ' + currentQuestion.correctOption.toUpperCase();
+    //         }
+    //         modal.style.display = 'block'; // Display the modal
+    //     }
+
+    //     // Close the modal when the user clicks anywhere outside of it
+    //     window.onclick = function(event) {
+    //         if (event.target == modal) {
+    //             modal.style.display = 'none';
+    //         }
+    //     }
+    // }
 
     function displayQuestion() {
         const currentQuestion = questions[currentQuestionIndex];
